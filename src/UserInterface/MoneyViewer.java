@@ -5,11 +5,6 @@ package UserInterface;
 import Model.Money;
 
 
-public class MoneyViewer {
-    Money money;
-    
-    public void refresh(){
-    
-    }
-        
+public interface MoneyViewer {
+    public void show (Money money);
 }

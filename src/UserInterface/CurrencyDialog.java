@@ -4,10 +4,6 @@ package UserInterface;
 import Model.Currency;
 
 
-public class CurrencyDialog {
-    Currency currency;
-    
-    public void execute(){
-    
-    }
+public interface CurrencyDialog {
+    public Currency getCurrency();
 }
