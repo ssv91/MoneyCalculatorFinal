@@ -56,9 +56,9 @@ public class Number {
         }
     }
 
-    public Number multiply(Number factorA, Number factorB) {
+    public Number multiply(Number factorA) {
         Number result;
-        result = new Number(factorA.numerator * factorB.numerator, factorA.denominator * factorB.denominator);
+        result = new Number(factorA.numerator * numerator, factorA.denominator * denominator);
         result.reduce();
         return result;
     }

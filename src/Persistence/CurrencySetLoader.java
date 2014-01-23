@@ -4,9 +4,13 @@ package Persistence;
 import Model.CurrencySet;
 
 
-public class CurrencySetLoader {
+public abstract class CurrencySetLoader {
+    static CurrencySetLoader instances;
 
-    public CurrencySet load(){
-        return null;
+    public CurrencySetLoader() {
     }
+
+    public abstract CurrencySetLoader getInstance();
+
+    public abstract void load();
 }

@@ -31,6 +31,6 @@ public class CalculateCommand extends Command {
     }
 
    private Number calculateAmount() {
-       return  getExchangeRate().multiply(moneyDialog.getMoney().getAmount());
+       return  getExchangeRate().multiply(moneyDialog.getMoney().getAmmount());
     }
 }
