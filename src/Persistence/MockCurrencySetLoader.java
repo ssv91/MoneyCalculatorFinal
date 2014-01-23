@@ -4,18 +4,21 @@ import Model.Currency;
 import Model.CurrencySet;
 
 public class MockCurrencySetLoader extends CurrencySetLoader{
-     public MockCurrencySetLoader() {
+    
+    private static MockCurrencySetLoader instances;
+    
+     private MockCurrencySetLoader() {
         super();
     }
     
      @Override
      public CurrencySetLoader getInstance() {
         if (instances == null)
-            instances = new MockCurrencySetLoader() {};
+            instances = new MockCurrencySetLoader();
         return instances;
     }
-     @Override
-    public void load() {
+    
+    public static void load() {
         CurrencySet set = CurrencySet.getInstance();
         set.clear();
         set.add(new Currency("Dolar americano", "USD", "$"));

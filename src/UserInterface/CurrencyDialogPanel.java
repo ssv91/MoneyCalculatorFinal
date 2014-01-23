@@ -27,7 +27,7 @@ class CurrencyDialogPanel extends JPanel implements CurrencyDialog {
 
     @Override
     public Currency getCurrency() {
-        return new Currency(currency,currency);
+        return new Currency(currency);
     }
 
     private void createComponents() {
@@ -35,8 +35,8 @@ class CurrencyDialogPanel extends JPanel implements CurrencyDialog {
     }
 
     private JComboBox createCurrencyDisplay() {
-        MockCurrencySetLoader mcsl = new MockCurrencySetLoader();
-        mcsl.getInstance().load();
+//        MockCurrencySetLoader set = new MockCurrencySetLoader();
+        MockCurrencySetLoader.load();
         MockExchangeRateLoader merl = new MockExchangeRateLoader();
         merl.getInstance().load();
         JComboBox comboBox = new JComboBox(CurrencySet.getInstance().toArray());

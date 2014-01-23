@@ -2,11 +2,11 @@ package Model;
 
 public class Currency {
 
-    private final String code;
-    private final String name;
+    private String code;
+    private String name;
     private String symbol;
 
-    public Currency(String code, String name, String symbol) {
+    public Currency(String name, String code, String symbol) {
         this.code = code;
         this.name = name;
         this.symbol = symbol;
@@ -17,13 +17,18 @@ public class Currency {
         this.name = name;
     }
 
+    public Currency(String code) {
+        this.code = code;
+    }
+
     @Override
     public String toString() {
-        if (symbol == null) {
-            return code;
-        } else {
-            return symbol;
-        }
+//        if (symbol == null) {
+//            return code;
+//        } else {
+//            return symbol;
+//        }
+        return code;
     }
 
     public String getCode() {
@@ -39,4 +44,3 @@ public class Currency {
     }
 
 }
-

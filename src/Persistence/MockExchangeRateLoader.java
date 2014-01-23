@@ -17,7 +17,7 @@ public class MockExchangeRateLoader extends ExchangeRateLoader{
     public MockExchangeRateLoader() {
         super();
     }
-
+  
     @Override
     public void load() {
         ExchangeRateSet rates = ExchangeRateSet.getInstance();
