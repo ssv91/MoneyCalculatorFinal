@@ -11,6 +11,4 @@ public abstract class CurrencySetLoader {
     }
 
     public abstract CurrencySetLoader getInstance();
-
-//    public abstract void load();
 }

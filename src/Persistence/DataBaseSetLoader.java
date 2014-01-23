@@ -32,7 +32,6 @@ public class DataBaseSetLoader extends CurrencySetLoader{
         ResultSet resulSet = statement.executeQuery("SELECT * FROM CAMBIO_EUR_A");
         if (set.isEmpty()) {
             while (resulSet.next()){
-                System.out.println(resulSet.getString("DIVISA"));
                 set.add(new Currency(resulSet.getString("DIVISA")));
             }
             set.add(new Currency("EUR"));

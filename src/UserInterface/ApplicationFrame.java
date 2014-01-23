@@ -3,6 +3,7 @@ package UserInterface;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.HeadlessException;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,7 +15,7 @@ public class ApplicationFrame extends JFrame {
     private MoneyViewer moneyViewer;
     private ActionListenerFactory factory;
 
-    public ApplicationFrame(ActionListenerFactory factory) throws HeadlessException {
+    public ApplicationFrame(ActionListenerFactory factory) throws HeadlessException, SQLException {
         super("Money calculator");
         this.factory = factory;
         this.setSize(300, 300);
@@ -36,12 +37,12 @@ public class ApplicationFrame extends JFrame {
         return moneyViewer;
     }
 
-    private void createComponents() {
+    private void createComponents() throws SQLException {
         this.add(createContentPanel());
         this.add(createToolbarPanel(), BorderLayout.SOUTH);
     }
 
-    private JPanel createContentPanel() {
+    private JPanel createContentPanel() throws SQLException {
         JPanel panel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         panel.add(createMoneyDialogPanel());
         panel.add(createCurrencyDialogPanel());
@@ -68,13 +69,13 @@ public class ApplicationFrame extends JFrame {
         return button;
     }
 
-    private JPanel createMoneyDialogPanel() {
+    private JPanel createMoneyDialogPanel() throws SQLException {
         MoneyDialogPanel panel = new MoneyDialogPanel();
         this.moneyDialog = panel;
         return panel;
     }
 
-    private JPanel createCurrencyDialogPanel() {
+    private JPanel createCurrencyDialogPanel() throws SQLException {
         CurrencyDialogPanel panel = new CurrencyDialogPanel("USD");
         this.currencyDialog = panel;
         return panel;

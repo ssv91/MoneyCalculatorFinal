@@ -7,16 +7,17 @@ import UserInterface.ActionListenerFactory;
 import UserInterface.ApplicationFrame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.HashMap;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         new Main().execute();
     }
     private HashMap<String, Command> commandMap;
 
-    private void execute() {
+    private void execute() throws SQLException {
         createCommands(createApplicationFrame());
     }
 
@@ -34,7 +35,7 @@ public class Main {
         });
     }
 
-    private ApplicationFrame createApplicationFrame() {
+    private ApplicationFrame createApplicationFrame() throws SQLException {
         return new ApplicationFrame(new ActionListenerFactory() {
             @Override
             public ActionListener createActionListener(final String action) {

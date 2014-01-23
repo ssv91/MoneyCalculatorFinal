@@ -7,18 +7,19 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import Model.Number;
 import Model.Money;
+import java.sql.SQLException;
 
 public class MoneyDialogPanel extends JPanel implements MoneyDialog {
 
     private String amount = "0";
     private CurrencyDialog currencyDialog;
 
-    public MoneyDialogPanel() {
+    public MoneyDialogPanel() throws SQLException {
         super(new FlowLayout(FlowLayout.LEFT));
         this.createComponents();
     }
 
-    private void createComponents() {
+    private void createComponents() throws SQLException {
         this.add(createAmountWidget());
         this.add(createCurrencyDialogPanel());
     }
@@ -47,7 +48,7 @@ public class MoneyDialogPanel extends JPanel implements MoneyDialog {
         return new Money(new Number(Double.parseDouble(amount)), currencyDialog.getCurrency());
     }
 
-    private JPanel createCurrencyDialogPanel() {
+    private JPanel createCurrencyDialogPanel() throws SQLException {
         CurrencyDialogPanel panel = new CurrencyDialogPanel();
         this.currencyDialog = panel;
         return panel;
